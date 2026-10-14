@@ -174,3 +174,29 @@
 
 @media screen and (min-width:761px){.drawer-print{display:none}}
 @media screen and (max-width:760px){.sidebar:not(.open){visibility:hidden}.sidebar.open{visibility:visible}.drawer-print{padding:20px 0}.drawer-close{padding:8px}}
+/* Progressive disclosure: everyday work first, details when needed. */
+.start-here,.tutorial-panel{padding:26px;border:1px solid var(--line);border-radius:20px;background:var(--surface);display:grid;gap:18px}
+.start-here{border-left:4px solid var(--primary)}
+.start-here h2,.tutorial-panel h2{font-size:21px;margin:4px 0 10px}
+.start-here p,.tutorial-panel p{margin:0;line-height:1.9}
+.tutorial-panel{background:var(--primary-soft)}
+.tutorial-panel small{display:block;margin-top:12px;color:var(--muted)}
+.guide-section,.page-help{border:1px solid var(--line);border-radius:16px;background:var(--surface);min-width:0}
+.guide-section>summary,.page-help>summary{padding:18px 22px;font-size:14px;font-weight:650}
+.guide-section>div,.page-help>div{padding:0 22px 22px;display:grid;gap:14px}
+.guide-section>div>p,.page-help p{margin:0;line-height:1.9}
+.feature-guides{display:grid;gap:12px;margin-top:18px}
+.guide-steps{display:grid;gap:26px}
+.guide-step{display:grid;grid-template-columns:36px minmax(0,1fr);gap:16px}
+.step-number{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--primary-soft);color:var(--primary);font-weight:700}
+.guide-step h3{font-size:16px;margin:3px 0 8px}.guide-step p{margin:0 0 14px}
+.collapsible-card>summary.card-head{cursor:pointer;padding-bottom:22px;list-style:none;position:relative;padding-right:52px}
+.collapsible-card>summary::-webkit-details-marker{display:none}
+.collapsible-card>summary:after{content:'+';position:absolute;right:24px;top:24px;font-size:20px;color:var(--primary)}
+.collapsible-card[open]>summary:after{content:'−'}
+.collapsible-card[open]>.card-body{padding-top:0}
+.panel-actions{margin:0 0 18px!important}
+.nav-more{margin-top:18px;border-top:1px solid var(--line)}.nav-more>summary{padding:18px 10px;font-size:12px;line-height:1.8}
+summary:focus-visible{outline:2px solid var(--primary);outline-offset:-4px;border-radius:12px}
+@media screen and (max-width:760px){.start-here,.tutorial-panel{padding:20px}.start-here h2,.tutorial-panel h2{font-size:19px}.guide-step{gap:12px}.guide-section>summary,.page-help>summary{padding:18px}.guide-section>div,.page-help>div{padding:0 18px 20px}.start-here .page-actions>.button,.tutorial-panel .page-actions>.button{flex:1;min-height:44px}.nav-more>summary{font-size:14px}.topbar{padding-top:env(safe-area-inset-top);min-height:calc(72px + env(safe-area-inset-top))}.sidebar{padding-top:env(safe-area-inset-top)}}
+@media print{.start-here,.tutorial-panel,.page-help{display:none!important}.collapsible-card>summary:after{display:none}.guide-section,.collapsible-card{break-inside:auto}}
