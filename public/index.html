@@ -2,15 +2,16 @@
 <html lang="th" data-theme="light">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#175f49">
   <meta name="description" content="SATI ระบบวางแผนการเงินส่วนบุคคล จัดการเงินเดือน งบประมาณ ทรัพย์สิน เป้าหมาย และภาษีไทย">
   <title>SATI — สร้างอนาคตด้วยเงินที่เข้าใจ</title>
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./polish.css">
 </head>
 <body>
-  <div id="app"><div style="padding:48px;font-family:sans-serif">กำลังเปิดสมุดการเงิน SATI…</div></div>
+  <div id="app"><main class="loading-screen"><div class="loading-panel" role="status"><div class="loading-logo" aria-hidden="true">s.</div><h1>เปิดสมุดการเงินของคุณ</h1><p>กำลังเตรียมพื้นที่วางแผน SATI…</p><div class="loading-track" aria-hidden="true"></div><p class="loading-help">หากรอนาน <a href="./index.html">ลองเปิดใหม่อีกครั้ง</a></p></div></main></div>
   <div id="modal-root"></div>
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
   <noscript>กรุณาเปิด JavaScript เพื่อใช้งานระบบคำนวณและบันทึกข้อมูล</noscript>
