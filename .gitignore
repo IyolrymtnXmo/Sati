@@ -1,0 +1,15 @@
+node_modules/
+*.tar.gz
+*.log
+.sites-runtime/
+.sites-checkout/
+qa/
+
+.wrangler/
+.vinext/
+.next/
+.env*
+dist/
+
+private/
+sati-github-pages-source.zip
