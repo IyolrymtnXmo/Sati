@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import {transform} from 'esbuild';
+import {localizedModules,translateSource} from '../scripts/localize.mjs';
+import {categoryLabel} from '../public/locale.js';
+import {defaultState} from '../public/data.js';
+const catalog=JSON.parse(await fs.readFile(new URL('../translations/en.json',import.meta.url),'utf8'));
+test('every localized module has complete translations and valid JavaScript',async()=>{for(const name of localizedModules){const original=await fs.readFile(new URL(`../public/${name}.js`,import.meta.url),'utf8');await transform(translateSource(original,catalog,name),{loader:'js'});}});
+test('unknown UI text fails the build instead of silently shipping mixed languages',()=>{assert.throws(()=>translateSource("const title='ข้อความใหม่ที่ยังไม่แปล';",catalog,'app'),/Missing English/);});
+test('English validation retains the exact schema, defaults and personal data',async()=>{const original=await fs.readFile(new URL('../public/data.js',import.meta.url),'utf8');const source=translateSource(original,catalog,'data');const en=await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));assert.deepEqual(en.defaultState('2026'),defaultState('2026'));const state=defaultState('2026');state.transactions=[{id:'test',date:'2026-10-15',type:'expense',description:'เงินเดือน / Salary ชื่อของฉัน',categoryId:'food',amount:42}];assert.deepEqual(en.validateBackup(state),state);});
+test('only unchanged built-in categories receive display translations',()=>{assert.equal(categoryLabel({id:'food',name:'อาหาร'},'en'),'Food');assert.equal(categoryLabel({id:'food',name:'อาหารของฉัน'},'en'),'อาหารของฉัน');assert.equal(categoryLabel({id:'custom',name:'อาหาร'},'en'),'อาหาร');assert.equal(categoryLabel({id:'food',name:'อาหาร'},'th'),'อาหาร');});

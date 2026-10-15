@@ -1,10 +1,12 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {build} from 'esbuild';
+import {buildEnglish} from './localize.mjs';
 const root=process.cwd(),out=path.resolve(root,'dist');
 if(out!==path.join(root,'dist'))throw new Error('Invalid output directory');
 await fs.rm(out,{recursive:true,force:true});
 await fs.cp('public',out,{recursive:true});
+await buildEnglish(out);
 await build({entryPoints:['@supabase/supabase-js'],bundle:true,format:'esm',platform:'browser',target:'es2022',minify:true,outfile:path.join(out,'vendor/supabase.js'),legalComments:'eof'});
 const url=process.env.SUPABASE_URL??'',key=process.env.SUPABASE_PUBLISHABLE_KEY??'';
 if(url||key){

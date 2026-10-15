@@ -200,3 +200,11 @@
 summary:focus-visible{outline:2px solid var(--primary);outline-offset:-4px;border-radius:12px}
 @media screen and (max-width:760px){.start-here,.tutorial-panel{padding:20px}.start-here h2,.tutorial-panel h2{font-size:19px}.guide-step{gap:12px}.guide-section>summary,.page-help>summary{padding:18px}.guide-section>div,.page-help>div{padding:0 18px 20px}.start-here .page-actions>.button,.tutorial-panel .page-actions>.button{flex:1;min-height:44px}.nav-more>summary{font-size:14px}.topbar{padding-top:env(safe-area-inset-top);min-height:calc(72px + env(safe-area-inset-top))}.sidebar{padding-top:env(safe-area-inset-top)}}
 @media print{.start-here,.tutorial-panel,.page-help{display:none!important}.collapsible-card>summary:after{display:none}.guide-section,.collapsible-card{break-inside:auto}}
+.auth-language{display:flex;justify-content:flex-end;margin-bottom:18px}
+.language-switch{font-size:12px;font-weight:750;flex-shrink:0;letter-spacing:.3px}
+html[lang=en] .nav-item{line-height:1.5}
+html[lang=en] .hero-title{font-size:26px}
+html[lang=en] .page-title{overflow-wrap:anywhere}
+@media screen and (max-width:760px){.topbar-actions{gap:5px}.topbar-actions .year-selector{width:132px}.topbar-actions .icon-btn{width:38px;height:44px}.topbar .breadcrumbs{font-size:11px;min-width:0;flex:1}.topbar{gap:8px}html[lang=en] .hero-title{font-size:22px}html[lang=en] .mobile-nav span{font-size:9px}.language-switch{min-width:38px}html[lang=en] .stat-label{min-height:44px}html[lang=en] .stat-value{font-size:24px}html[lang=en] .hero-kicker{font-size:9px}html[lang=en] .page-actions>.button{min-width:0;overflow-wrap:anywhere}}
+@media screen and (max-width:359px){.topbar-actions .year-selector{width:119px}.topbar{padding-left:10px;padding-right:10px}}
+@media print{.auth-language,.language-switch{display:none!important}}

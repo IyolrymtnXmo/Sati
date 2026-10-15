@@ -29,3 +29,9 @@ Node.js 22 ขึ้นไป (แนะนำ 24): `npm ci`, `npm test`, `npm r
 กฎภาษีในแอปอ้างอิงตรวจเมื่อ 13 ตุลาคม 2569 ต้องตรวจใหม่ตามปีภาษี ไม่เชื่อมธนาคาร ไม่โอนเงินจริง และไม่ยื่นภาษี
 
 หากมีไฟล์ private/ ในเครื่อง ไฟล์นั้นเป็นข้อมูลส่วนตัว ห้ามรวมใน repository สาธารณะหรือ public/ ใช้ ZIP ซอร์สที่จัดไว้เพื่อเริ่ม repository ใหม่โดยไม่มีประวัติส่วนตัวจาก Sites
+
+## Interface languages
+
+The EN / TH button in the header (and sign-in screen) switches the interface language. The preference is stored per browser/device. Save edits and close dialogs before switching; the app reloads in the chosen language without changing financial records. Thai uses Buddhist-era display years; English uses Gregorian display years. THB amounts and stored ISO dates are unchanged.
+
+English UI modules are generated during `npm run build` from the Thai source and `translations/en.json`. Add a translation when introducing new Thai UI text; the build fails on missing phrases. Do not edit generated `dist/*.en.js` files. Stored user text and original workbook cells are never translated. Only unchanged built-in budget labels receive English display labels.
